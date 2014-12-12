@@ -207,4 +207,8 @@
     background-color: #fafafa;
     border-bottom: 2px solid #efefef;
   }
+  
+  #edit header:first-child .tabBar > div {
+    max-width: none; 
+  }
 }

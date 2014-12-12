@@ -64,8 +64,13 @@
   transition: all .5s;
   cursor: pointer;
   display: inline-block;
-  margin: 0 1rem;
+  margin: 0 7px;
   border-bottom: 0.2rem solid transparent;
+  max-width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 100%;
+  white-space: nowrap;
 }
 
 #edit header:first-child .tabBar > div.selected-tab-button {
