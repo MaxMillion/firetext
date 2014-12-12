@@ -140,10 +140,24 @@ regions.sidebar = function (name, state) {
 
 regions.tab = function (list, name) {
 	if (document.getElementById('tab-'+name)) {
-		if (document.querySelector('.selected')) {
-			document.querySelector('.selected').classList.remove('selected');
+    // Unselect previous tab and button
+    var previousTab = document.querySelector('.selected-tab');
+		if (previousTab) {
+			previousTab.classList.remove('selected-tab');
 		}
-		document.getElementById('tab-'+name).classList.add('selected');
+    var previousTabButton = document.querySelector('.selected-tab-button');
+		if (previousTabButton) {
+			previousTabButton.classList.remove('selected-tab-button');
+		}
+    
+    // Select tab
+		document.getElementById('tab-'+name).classList.add('selected-tab');
+    
+    // Select tab button
+    var tabButton = document.querySelector('[role="tab-button"][data-tab-id="'+name+'"]');
+    if (tabButton) {
+      tabButton.classList.add('selected-tab-button');                
+    }
 		
 		/* Remove this section when porting to other projects */
 		if (name == 'raw') {

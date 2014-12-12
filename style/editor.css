@@ -1,10 +1,11 @@
 .editor-container {
-  height: 100%;
   padding: 0;
   margin: 0;
   overflow: scroll;
+  position: relative;
 }
 
+/* HTML editor */
 .editor {
   border: none;
   font-size: 2em;
@@ -12,14 +13,23 @@
   outline: none;
   width: 100%;
   height: 100%;
-  word-wrap: break-word;
-  background-color: #efefef;
+  display: block;
 }
 
 #tempEditDiv {
   font-family: "Open Sans", Sans-serif;
 }
 
+[role="toolbar"] .hidden {
+  visibility: hidden;
+}
+
+#edit-bar {
+  position: absolute;
+  bottom: 0;
+}
+
+/* Code editor */
 #rawEditor {
   border: none;
   padding: 5px 5px 6rem;
@@ -31,6 +41,34 @@
   direction: ltr;
 }
 
-[role="toolbar"] .hidden {
-  visibility: hidden;
+/* Header */
+#fileName {
+  text-align: left;
+  display: none;
+}
+
+#edit header:first-child .tabBar {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+}
+
+#edit header:first-child .tabBar > div {
+  font-size: 2rem;
+  text-decoration: none;
+  line-height: 4.8rem;
+  color: #737373;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+  transition: all .5s;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 1rem;
+  border-bottom: 0.2rem solid transparent;
+}
+
+#edit header:first-child .tabBar > div.selected-tab-button {
+  border-color: #737373;
+  color: #1f1f1f;
 }

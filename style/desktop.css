@@ -192,4 +192,19 @@
       -ms-transform: rotate(0.5turn);
     transform: rotate(0.5turn);
   }
+  
+  /* Editor */
+  #edit header:first-child {
+    border-bottom: none;
+  }
+  
+  #fileName {
+    display: inline-block;
+  }
+  
+  #edit-bar {
+    top: 0;
+    background-color: #fafafa;
+    border-bottom: 2px solid #efefef;
+  }
 }

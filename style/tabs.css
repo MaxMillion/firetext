@@ -1,0 +1,80 @@
+/* ----------------------------------
+* Tabs
+* ---------------------------------- */
+
+/* Tab panel */
+[role="tabs"] {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+[role="tabs"] [role="tab"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+    -moz-transition: all .4s;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+  transition: all .4s;
+  visibility: hidden;
+}
+
+.current [role="tabs"] [role="tab"],
+.parent [role="tabs"] [role="tab"],
+.active [role="tabs"] [role="tab"] {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.current [role="tabs"] [role="tab"].selected-tab,
+.parent [role="tabs"] [role="tab"].selected-tab,
+.active [role="tabs"] [role="tab"].selected-tab,
+[dir="rtl"] .current [role="tabs"] [role="tab"].selected-tab,
+[dir="rtl"] .parent [role="tabs"] [role="tab"].selected-tab,
+[dir="rtl"] .active [role="tabs"] [role="tab"].selected-tab {
+    -moz-transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+  transform: none;
+  visibility: visible;
+}
+
+[role="tabs"] .selected-tab ~ [role="tab"] {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+/* RTL */
+[dir="rtl"] .current [role="tabs"] [role="tab"],
+[dir="rtl"] .parent [role="tabs"] [role="tab"],
+[dir="rtl"] .active [role="tabs"] [role="tab"] {
+    -moz-transform: translateX(102%);
+    -webkit-transform: translateX(102%);
+    -o-transform: translateX(102%);
+    -ms-transform: translateX(102%);
+  transform: translateX(102%);
+}
+
+[dir="rtl"] [role="tabs"] .selected-tab ~ [role="tab"] {
+    -moz-transform: translateX(-102%);
+    -webkit-transform: translateX(-102%);
+    -o-transform: translateX(-102%);
+    -ms-transform: translateX(-102%);
+  transform: translateX(-102%);
+}
