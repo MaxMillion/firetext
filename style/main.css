@@ -147,7 +147,7 @@ label.pack-switch {
 [data-type="list"] h2,
 [data-type="edit"] h2 {
   background: #efefef;
-  padding: 5px 20px;
+  padding: 0.5rem 2rem;
   color: #2C2C2C;
   margin: 0 0;
   font-family: "Open Sans";
@@ -158,8 +158,8 @@ label.pack-switch {
 [data-type="list"] li a,
 [data-type="edit"] li a,
 .noLink {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 

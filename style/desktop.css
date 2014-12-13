@@ -4,6 +4,25 @@
   }
   
   /* Regions */
+  section[role="region"] {
+    opacity: 0;
+      -moz-transform: none !important;
+      -webkit-transform: none !important;
+      -o-transform: none !important; 
+      -ms-transform: none !important; 
+    transform: none !important;
+      -moz-transition-duration: 0.2s;
+      -webkit-transition-duration: 0.2s;
+      -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+  }
+  
+  section[role="region"].current,
+  [role="region"].parent,
+  [role="dialog"].parent {
+    opacity: 1;
+  }
+  
   section[role="dialog"],
   form[role="dialog"] {
     width: auto;
@@ -21,6 +40,7 @@
     transform: translateY(150%);
     z-index: 102 !important;
   }
+  
   section[role="dialog"] + .background,
   form[role="dialog"] + .background {
     z-index: 101;
@@ -39,6 +59,7 @@
       -ms-transition: opacity .4s, visibility .4s 0s;
     transition: opacity .4s, visibility .4s 0s;
   }
+  
   section[role="dialog"].current + .background,
   section[role="dialog"].parent + .background,
   form[role="dialog"].current + .background,
@@ -53,13 +74,25 @@
   }
   
   /* Tabs */
-  [role="tablist"] > [role="tab"] {
-    width: auto !important;
+  .current [role="tabs"] [role="tab"],
+  .parent [role="tabs"] [role="tab"],
+  .active [role="tabs"] [role="tab"] {
+      -moz-transform: none;
+      -webkit-transform: none;
+      -o-transform: none;
+      -ms-transform: none;
+    transform: none;
+    opacity: 0;
+      -moz-transition-duration: 0.2s;
+      -webkit-transition-duration: 0.2s;
+      -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
   }
-  [role="tablist"] > [role="tab"] > a {
-    padding: 0 15px;
-    width: auto;
+  
+  [role="tabs"] [role="tab"].selected-tab {
+    opacity: 1;
   }
+  
   
   /* Drawer/Sidebar */
   section[data-type="sidebar"] {
@@ -78,18 +111,22 @@
     overflow: visible;
     pointer-events: none;
   }
+  
   .fullscreen section[data-type="sidebar"] {
     top: 4.5rem;
       height: -moz-calc(100% - 4.5rem - 3rem);
       height: -webkit-calc(100% - 4.5rem - 3rem);
     height: calc(100% - 4.5rem - 3rem);
   }
+  
   section[data-type="sidebar"] > * {
     pointer-events: all;
   }
+  
   section[data-type="sidebar"] > header:first-child {
     display: none;
   }
+  
   section[data-type="sidebar"] > nav {
     height: auto;
       max-height: -moz-calc(100% - 5rem);
@@ -103,6 +140,7 @@
     border-bottom-right-radius: 0;
     background-color: #ffffff;
   }
+  
   section[data-type="sidebar"] > nav:before,
   section[data-type="sidebar"] > nav:after {
     height: 0;
@@ -110,35 +148,41 @@
     position: absolute;
     border: solid transparent;
     content: " ";
-    border-width: 11px;
+    border-width: 1rem;
     margin-left: -11px;
-    right: 9px;
+    right: 1rem;
   }
+  
   section[data-type="sidebar"] > nav:before {
     border-bottom-color: #ccc;
     bottom: 100%;
   }
+  
   section[data-type="sidebar"] > nav:after {
     border-bottom-color: #fff;
       bottom: -moz-calc(100% - 1px);
       bottom: -webkit-calc(100% - 1px);
     bottom: calc(100% - 1px);
   }
+  
   section[data-type="sidebar"] > nav > h2 {
     background-color: transparent;
     text-indent: 0;
     font-size: 1.8rem;
     padding: 0.5rem 2rem;
   }
+  
   section[data-type="sidebar"] > nav > ul > li:active {
     background-color: #efefef;
   }
+  
   section[data-type="sidebar"] > nav > ul > li > a {
     font-size: 1.8rem;
     line-height: 4rem;
     padding: 0.5rem 2rem;
     text-indent: 0;
   }
+  
   section[data-type="sidebar"] [role="toolbar"] {
     width: 100%;
     position: static;
@@ -151,13 +195,16 @@
     border: 1px solid #ccc;
     border-top-width: 0;
   }
+  
   section[data-type="sidebar"] [role="toolbar"] button {
     margin: 0;
   }
+  
   section[data-type="sidebar"] [role="toolbar"] button:active,
   section[data-type="sidebar"] [role="toolbar"] button.active {
     background-color: #ccc; 
   }
+  
   [data-state="drawer"].current,
   [data-state="drawer"][data-position="right"].current,
   [dir="rtl"] [data-state="drawer"].current,
@@ -168,6 +215,7 @@
       -ms-transform: translateX(0) !important;    
     transform: translateX(0) !important;   
   }
+  
   [dir="rtl"] section[data-type="sidebar"] > nav:before,
   [dir="rtl"] section[data-type="sidebar"] > nav:after {
     right: auto;
@@ -202,7 +250,7 @@
   
   /* Editor */
   #edit header:first-child {
-    border-bottom: none;
+    border-bottom: 2px solid #fafafa;
   }
   
   #fileName {
